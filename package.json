@@ -4,7 +4,10 @@
   "description": "JavaScript language support for the CodeMirror code editor",
   "scripts": {
     "test": "cm-runtests",
-    "prepare": "cm-buildhelper src/index.ts"
+    "prepare": "cm-buildhelper src/index.ts",
+    "build": "redrun -s clean build:codemirror",
+    "clean": "node clean.mjs",
+    "build:codemirror": "node esbuild.mjs"
   },
   "keywords": [
     "editor",
@@ -26,17 +29,30 @@
   "sideEffects": false,
   "license": "MIT",
   "dependencies": {
-    "@codemirror/autocomplete": "^6.0.0",
-    "@codemirror/language": "^6.6.0",
-    "@codemirror/lint": "^6.0.0",
-    "@codemirror/state": "^6.0.0",
-    "@codemirror/view": "^6.17.0",
-    "@lezer/common": "^1.0.0",
-    "@lezer/javascript": "^1.0.0"
+    "@codemirror/autocomplete": "^6.16.3",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/language": "^6.10.2",
+    "@codemirror/lint": "^6.8.1",
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/view": "^6.28.2",
+    "@lezer/common": "^1.2.1",
+    "@lezer/javascript": "^1.4.17",
+    "codemirror": "^6.0.1",
+    "esbuild": "^0.21.5",
+    "esbuild-css-modules-plugin": "^3.1.2",
+    "esbuild-plugin-copy": "^2.1.1",
+    "esbuild-plugin-path-alias": "^1.0.7",
+    "esbuild-plugin-polyfill-node": "^0.3.0",
+    "eslint-linter-browserify": "^9.6.0",
+    "globals": "^15.7.0"
   },
   "devDependencies": {
-    "@codemirror/buildhelper": "^1.0.0",
-    "@lezer/lr": "^1.0.0"
+    "@codemirror/buildhelper": "^1.0.1",
+    "@lezer/lr": "^1.4.1",
+    "dotenv": "^16.4.5",
+    "esbuild-plugin-glsl": "^1.2.2",
+    "fs-extra": "^11.2.0",
+    "redrun": "^11.0.5"
   },
   "repository": {
     "type": "git",
